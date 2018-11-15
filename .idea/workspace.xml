@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e961252-f205-4c0f-a81d-4e3fc95b988e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Model/GroupData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,38 +32,42 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="CreateContact" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="6" />
+          <entry key="java" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="6" />
+          <entry key="JAVA" value="7" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="18" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="2125" />
-          <entry key="txt" value="110" />
+          <entry key="java" value="2145" />
+          <entry key="txt" value="161" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="2125" />
-          <entry key="PLAIN_TEXT" value="110" />
+          <entry key="JAVA" value="2145" />
+          <entry key="PLAIN_TEXT" value="179" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateGroup.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="289">
+              <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
               <folding>
                 <element signature="e#934#935#0" expanded="true" />
                 <element signature="e#1003#1004#0" expanded="true" />
@@ -73,6 +77,19 @@
                 <element signature="e#1634#1635#0" expanded="true" />
                 <element signature="e#1592#1593#0" expanded="true" />
                 <element signature="e#1657#1658#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateContact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="54" column="53" lean-forward="true" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+              <folding>
+                <element signature="e#4875#4876#0" expanded="true" />
+                <element signature="e#4941#4942#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -481,6 +498,7 @@
         <option value="$PROJECT_DIR$/src/test/java/GroupData.java" />
         <option value="$PROJECT_DIR$/src/test/java/CreateGroup.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/CreateGroup.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Tests/CreateContact.java" />
       </list>
     </option>
   </component>
@@ -561,7 +579,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542284961556" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542285580884" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -586,7 +604,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.CreateGroup">
+  <component name="RunManager" selected="TestNG.CreateContact">
     <configuration name="Point" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Point" />
       <module name="homework_main" />
@@ -597,6 +615,22 @@
     <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Run" />
       <module name="homework_main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CreateContact" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="homework_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.CreateContact" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -615,9 +649,11 @@
       <item itemvalue="Application.Point" />
       <item itemvalue="Application.Run" />
       <item itemvalue="TestNG.CreateGroup" />
+      <item itemvalue="TestNG.CreateContact" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.CreateContact" />
         <item itemvalue="TestNG.CreateGroup" />
         <item itemvalue="Application.Run" />
         <item itemvalue="Application.Point" />
@@ -636,7 +672,7 @@
       <updated>1542028458809</updated>
       <workItem from="1542028461659" duration="8079000" />
       <workItem from="1542193733775" duration="8000" />
-      <workItem from="1542206277691" duration="2475000" />
+      <workItem from="1542206277691" duration="3004000" />
     </task>
     <task id="LOCAL-00001" summary="записан тест создания групп">
       <created>1542206624827</created>
@@ -659,7 +695,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542207610625</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="создан вспомогательный класс GroupData">
+      <created>1542285044095</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1542285044095</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -674,7 +717,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10562000" />
+    <option name="totallyTimeSpent" value="11091000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1554" height="1057" extended-state="0" />
@@ -722,7 +765,8 @@
     <MESSAGE value="записан тест создания групп" />
     <MESSAGE value="выделены вспомогательные методы" />
     <MESSAGE value="мараметризован методы заполнения формы и логина" />
-    <option name="LAST_COMMIT_MESSAGE" value="мараметризован методы заполнения формы и логина" />
+    <MESSAGE value="создан вспомогательный класс GroupData" />
+    <option name="LAST_COMMIT_MESSAGE" value="создан вспомогательный класс GroupData" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Run.java">
@@ -764,9 +808,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateContact">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="289">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
           <folding>
             <element signature="e#934#935#0" expanded="true" />
             <element signature="e#1003#1004#0" expanded="true" />
@@ -776,6 +824,17 @@
             <element signature="e#1634#1635#0" expanded="true" />
             <element signature="e#1592#1593#0" expanded="true" />
             <element signature="e#1657#1658#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateContact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="54" column="53" lean-forward="true" selection-start-line="54" selection-start-column="53" selection-end-line="54" selection-end-column="53" />
+          <folding>
+            <element signature="e#4875#4876#0" expanded="true" />
+            <element signature="e#4941#4942#0" expanded="true" />
           </folding>
         </state>
       </provider>
