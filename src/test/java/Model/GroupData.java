@@ -1,4 +1,4 @@
-package Helpers;
+package Model;
 
 public class GroupData {
     private final String groupName;

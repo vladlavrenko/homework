@@ -1,4 +1,4 @@
-package Helpers;
+package Model;
 
 public class ContactData {
     private final String firstName;
