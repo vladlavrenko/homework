@@ -1,6 +1,3 @@
-package com.example.tests;
-
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.testng.annotations.*;
 import static org.testng.Assert.*;
@@ -8,7 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class UntitledTestCase {
+public class CreateContactTest {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
@@ -22,7 +19,7 @@ public class UntitledTestCase {
   }
 
   @Test
-  public void testUntitledTestCase() throws Exception {
+  public void testCreateContact() throws Exception {
     driver.get("http://localhost/addressbook/");
     driver.findElement(By.name("user")).click();
     driver.findElement(By.name("user")).clear();
