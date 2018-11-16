@@ -1,7 +1,7 @@
 package Tests;
 
+import Helpers.ContactData;
 import Helpers.GroupData;
-import Helpers.NavigationHelper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.fail;
 
-public class TestBase extends NavigationHelper {
+public class TestBase {
     public WebDriver driver;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
@@ -102,35 +102,35 @@ public class TestBase extends NavigationHelper {
         }
     }
 
-    protected void fillContactsField(String firstName, String middleName, String lastName, String nickName, String title, String company, String address, String home, String mobile) {
+    protected void fillContactsField(ContactData contactData) {
         driver.findElement(By.name("firstname")).click();
         driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(firstName);
+        driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
         driver.findElement(By.name("middlename")).click();
         driver.findElement(By.name("middlename")).clear();
-        driver.findElement(By.name("middlename")).sendKeys(middleName);
+        driver.findElement(By.name("middlename")).sendKeys(contactData.getMiddleName());
         driver.findElement(By.name("theform")).click();
         driver.findElement(By.name("lastname")).click();
         driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(lastName);
+        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
         driver.findElement(By.name("nickname")).click();
         driver.findElement(By.name("nickname")).clear();
-        driver.findElement(By.name("nickname")).sendKeys(nickName);
+        driver.findElement(By.name("nickname")).sendKeys(contactData.getNickName());
         driver.findElement(By.name("title")).click();
         driver.findElement(By.name("title")).clear();
-        driver.findElement(By.name("title")).sendKeys(title);
+        driver.findElement(By.name("title")).sendKeys(contactData.getTitle());
         driver.findElement(By.name("company")).click();
         driver.findElement(By.name("company")).clear();
-        driver.findElement(By.name("company")).sendKeys(company);
+        driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
         driver.findElement(By.name("address")).click();
         driver.findElement(By.name("address")).clear();
-        driver.findElement(By.name("address")).sendKeys(address);
+        driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
         driver.findElement(By.name("home")).click();
         driver.findElement(By.name("home")).clear();
-        driver.findElement(By.name("home")).sendKeys(home);
+        driver.findElement(By.name("home")).sendKeys(contactData.getHome());
         driver.findElement(By.name("mobile")).click();
         driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(mobile);
+        driver.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
         driver.findElement(By.name("work")).click();
         driver.findElement(By.name("work")).clear();
         driver.findElement(By.name("work")).sendKeys("789");
