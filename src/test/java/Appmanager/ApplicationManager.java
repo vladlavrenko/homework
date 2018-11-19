@@ -1,10 +1,7 @@
 package Appmanager;
 
-import Model.ContactData;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +18,7 @@ public class ApplicationManager {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
+        driver.get("http://localhost/addressbook/");
         sessionHelper.login("admin", "secret");
         groupHelper = new GroupHelper(navigationHelper.driver);
         contactHelper = new ContactHelper(navigationHelper.driver);
