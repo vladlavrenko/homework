@@ -10,12 +10,12 @@ public class TestBase {
     protected final ApplicationManager app = new ApplicationManager();
 
     @BeforeClass(alwaysRun = true)
-    private void setUp() {
+    public void setUp() {
         app.init();
     }
 
     @AfterClass(alwaysRun = true)
-    private void tearDown() throws Exception {
+    public void tearDown() {
         app.stop();
     }
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
-    public WebDriver driver;
+    private WebDriver driver;
 
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
@@ -18,10 +18,10 @@ public class ApplicationManager {
     public void init() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        sessionHelper.login("admin", "secret");
-        groupHelper = new GroupHelper(navigationHelper.driver);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
+        sessionHelper.login("admin", "secret");
+        groupHelper = new GroupHelper(navigationHelper.driver);
     }
 
     public void stop() {
