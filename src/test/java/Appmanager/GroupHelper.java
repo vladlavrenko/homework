@@ -24,7 +24,12 @@ public class GroupHelper extends HelperBase {
         click(By.name("new"));
     }
 
-    public void goToGroups() {
-        click(By.linkText("groups"));
+    public void initGroupEdition() {
+        click(By.name("selected[]"));
+        click(By.name("edit"));
+    }
+
+    public void submitGroupEditionForm() {
+        click(By.name("update"));
     }
 }
