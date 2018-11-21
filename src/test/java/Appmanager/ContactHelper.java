@@ -21,6 +21,18 @@ public class ContactHelper extends HelperBase {
     }
 
     public void submitContactCreationForm() {
-        driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]")).click();
+        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
+    }
+
+    public void initContactEdition() {
+        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='qwe@qwe.qwe'])[1]/following::img[2]"));
+    }
+
+    public void submitContactEditionForm() {
+        click(By.name("update"));
+    }
+
+    public void submitContactDeletion() {
+        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='secondary'])[2]/following::input[3]"));
     }
 }
