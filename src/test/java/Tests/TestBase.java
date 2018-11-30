@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeClass;
 
 public class TestBase {
 
-    final ApplicationManager app = new ApplicationManager(BrowserType.EDGE);
+    final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
