@@ -10,12 +10,11 @@ public class NavigationHelper extends HelperBase{
     }
 
     public void returnToGroupPage() {
-        if (isElementPresent(By.tagName("h1"))
-                && driver.findElement(By.tagName("h1")).getText().equals("Groups")
-                && isElementPresent(By.name("new"))) {
+        if (!isElementPresent(By.linkText("group page"))) {
             return;
+        } else {
+            click(By.linkText("group page"));
         }
-        click(By.linkText("group page"));
     }
 
     public void goToContactsCreation() {
@@ -23,11 +22,18 @@ public class NavigationHelper extends HelperBase{
     }
 
     public void goToGroups() {
-        click(By.linkText("groups"));
+        if (isElementPresent(By.tagName("h1"))
+                && driver.findElement(By.tagName("h1")).getText().equals("Groups")
+                && isElementPresent(By.name("new"))) {
+            return;
+        } else {
+            click(By.linkText("groups"));
+        }
+
     }
 
     public void goToHomePage() {
-        if (!isElementPresent(By.name("MainForm"))) {
+        if (!isElementPresent(By.id("maintable"))) {
             click(By.linkText("home"));
         }
     }
