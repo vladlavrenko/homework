@@ -25,7 +25,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactEdition() {
-        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='qwe@qwe.qwe'])[1]/following::img[2]"));
+        click(By.xpath("(//img[@alt='Edit'])[1]"));
     }
 
     public void submitContactEditionForm() {
@@ -33,6 +33,17 @@ public class ContactHelper extends HelperBase {
     }
 
     public void submitContactDeletion() {
-        click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='secondary'])[2]/following::input[3]"));
+        click(By.xpath("//input[@value='Delete']"));
+    }
+
+    public void createContact(ContactData contact) {
+        click(By.linkText("add new"));
+        fillContactsField(contact);
+        submitContactCreationForm();
+        click(By.xpath("//a[contains(.,'home')]"));
+    }
+
+    public boolean isContactPresent() {
+        return isElementPresent(By.name("selected[]"));
     }
 }

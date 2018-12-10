@@ -16,6 +16,15 @@ public class GroupHelper extends HelperBase {
         type(By.name("group_footer"), groupData.getGroupFooter());
     }
 
+
+    public void returnToGroupPage() {
+        if (!isElementPresent(By.linkText("group page"))) {
+            return;
+        } else {
+            click(By.linkText("group page"));
+        }
+    }
+
     public void submitGroupCreationForm() {
         click(By.name("submit"));
     }
@@ -38,5 +47,16 @@ public class GroupHelper extends HelperBase {
 
     public void submitGroupEditionForm() {
         click(By.name("update"));
+    }
+
+    public void createGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupFields(group);
+        submitGroupCreationForm();
+        returnToGroupPage();
+    }
+
+    public boolean isGroupPresent() {
+        return isElementPresent(By.name("selected"));
     }
 }

@@ -9,14 +9,6 @@ public class NavigationHelper extends HelperBase{
         super(driver);
     }
 
-    public void returnToGroupPage() {
-        if (!isElementPresent(By.linkText("group page"))) {
-            return;
-        } else {
-            click(By.linkText("group page"));
-        }
-    }
-
     public void goToContactsCreation() {
        click(By.linkText("add new"));
     }
