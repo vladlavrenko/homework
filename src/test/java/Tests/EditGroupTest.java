@@ -4,6 +4,8 @@ import Model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class EditGroupTest extends TestBase{
     @Test
     public void testEditGroup() {
@@ -11,15 +13,15 @@ public class EditGroupTest extends TestBase{
         if (! app.getGroupHelper().isGroupPresent()) {
             app.getGroupHelper().createGroup(new GroupData("Test name", "Test header", "Test footer"));
         }
-        int before = app.getGroupHelper().groupAmount();
-        app.getGroupHelper().checkGroup(before - 1);
+        List<GroupData> before = app.getGroupHelper().groupList();
+        app.getGroupHelper().checkGroup(before.size() - 1);
         app.getGroupHelper().initGroupEdition();
-        app.getGroupHelper().fillGroupFields(new GroupData("EditGroupName", "EditGroupHeader", "EditGroupFooter"));
+        app.getGroupHelper().fillGroupFields(new GroupData("Edit name", "Edit header", "Edit footer"));
         app.getGroupHelper().submitGroupEditionForm();
         app.getGroupHelper().returnToGroupPage();
-        int after = app.getGroupHelper().groupAmount();
+        List<GroupData> after = app.getGroupHelper().groupList();
 
-        Assert.assertEquals(after, before);
+        Assert.assertEquals(after.size(), before.size());
 
     }
 }

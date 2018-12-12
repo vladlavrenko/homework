@@ -4,15 +4,18 @@ import Model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class CreateGroupTest extends TestBase {
 
     @Test
     public void testCreateGroup() {
         app.getNavigationHelper().goToGroups();
-        int before = app.getGroupHelper().groupAmount();
-        app.getGroupHelper().createGroup(new GroupData("Test name", "Test header", "Test footer"));
-        int after = app.getGroupHelper().groupAmount();
-        Assert.assertEquals(after, before + 1);
+        List<GroupData> before = app.getGroupHelper().groupList();
+        app.getGroupHelper().createGroup(new GroupData("Create test name", "Create test header", "Create test footer"));
+        List<GroupData> after = app.getGroupHelper().groupList();
+
+        Assert.assertEquals(after.size(), before.size() + 1);
     }
 
 }
