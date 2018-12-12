@@ -29,7 +29,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void submitContactEditionForm() {
-        click(By.name("update"));
+        click(By.xpath("//input[@value='Update']"));
     }
 
     public void submitContactDeletion() {
@@ -45,5 +45,9 @@ public class ContactHelper extends HelperBase {
 
     public boolean isContactPresent() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int contactsAmount() {
+        return driver.findElements(By.name("selected[]")).size();
     }
 }

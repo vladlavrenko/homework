@@ -32,7 +32,7 @@ public class ApplicationManager {
             System.out.println("Incorrect browser");
         }
 
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         driver.get("http://localhost/addressbook/");
