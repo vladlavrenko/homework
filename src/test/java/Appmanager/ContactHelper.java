@@ -24,8 +24,8 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
     }
 
-    public void initContactEdition() {
-        click(By.xpath("(//img[@alt='Edit'])[1]"));
+    public void initContactEdition(int index) {
+        driver.findElements(By.xpath("(//img[@alt='Edit'])[1]")).get(index).click();
     }
 
     public void submitContactEditionForm() {

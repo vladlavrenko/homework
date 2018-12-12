@@ -12,7 +12,7 @@ public class EditContactTest extends TestBase {
             app.getContactHelper().createContact(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
         }
         int before = app.getContactHelper().contactsAmount();
-        app.getContactHelper().initContactEdition();
+        app.getContactHelper().initContactEdition(before - 1);
         app.getContactHelper().fillContactsField(new ContactData("EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany"));
         app.getContactHelper().submitContactEditionForm();
         app.getNavigationHelper().goToHomePage();
