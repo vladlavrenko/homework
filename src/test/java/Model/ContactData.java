@@ -1,6 +1,9 @@
 package Model;
 
+import java.util.Objects;
+
 public class ContactData {
+    private int id;
     private final String firstName;
     private final String middleName;
     private final String lastName;
@@ -8,7 +11,18 @@ public class ContactData {
     private final String title;
     private final String company;
 
+    public ContactData(int id, String firstName, String middleName, String lastName, String nickName, String title, String company) {
+        this.id = id;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.nickName = nickName;
+        this.title = title;
+        this.company = company;
+    }
+
     public ContactData(String firstName, String middleName, String lastName, String nickName, String title, String company) {
+        this.id = 0;
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -39,5 +53,37 @@ public class ContactData {
 
     public String getCompany() {
         return company;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(middleName, that.middleName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, firstName, middleName);
     }
 }

@@ -3,7 +3,11 @@ package Appmanager;
 import Model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -25,7 +29,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactEdition(int index) {
-        driver.findElements(By.xpath("(//img[@alt='Edit'])[1]")).get(index).click();
+        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(index).click();
     }
 
     public void submitContactEditionForm() {
@@ -49,5 +53,17 @@ public class ContactHelper extends HelperBase {
 
     public int contactsAmount() {
         return driver.findElements(By.name("selected[]")).size();
+    }
+
+    public List<ContactData> contactList() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(By.xpath("//td[@class='center']/input[@type='checkbox']"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.xpath("//input[@name='selected[]']")).getAttribute("value"));
+            ContactData contact = new ContactData(id, name, null, null, null, null, null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }

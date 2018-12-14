@@ -69,7 +69,7 @@ public class GroupHelper extends HelperBase {
     }
 
     public List<GroupData> groupList() {
-        List<GroupData> groups = new ArrayList<GroupData>();
+        List<GroupData> groups = new ArrayList<>();
         List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
         for (WebElement element : elements) {
             String name = element.getText();
