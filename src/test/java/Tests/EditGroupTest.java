@@ -4,6 +4,7 @@ import Model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class EditGroupTest extends TestBase{
@@ -16,12 +17,15 @@ public class EditGroupTest extends TestBase{
         List<GroupData> before = app.getGroupHelper().groupList();
         app.getGroupHelper().checkGroup(before.size() - 1);
         app.getGroupHelper().initGroupEdition();
-        app.getGroupHelper().fillGroupFields(new GroupData("Edit name", "Edit header", "Edit footer"));
+        GroupData group = new GroupData(before.get(before.size()-1).getId(), "Edit name", "Edit header", "Edit footer");
+        app.getGroupHelper().fillGroupFields(group);
         app.getGroupHelper().submitGroupEditionForm();
         app.getGroupHelper().returnToGroupPage();
         List<GroupData> after = app.getGroupHelper().groupList();
 
-        Assert.assertEquals(after.size(), before.size());
+        before.remove(before.size()-1);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(after), new HashSet<Object>(before));
 
     }
 }

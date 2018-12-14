@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="3e961252-f205-4c0f-a81d-4e3fc95b988e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/Tests/CreateGroupTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/Tests/CreateGroupTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Model/GroupData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/GroupData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -42,14 +44,14 @@
         <counts>
           <entry key="CreateContact" value="1" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="189" />
+          <entry key="java" value="192" />
           <entry key="uml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="189" />
+          <entry key="JAVA" value="192" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="UML" value="5" />
         </counts>
@@ -58,26 +60,38 @@
         <counts>
           <entry key="dummy" value="51" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="7889" />
-          <entry key="txt" value="713" />
+          <entry key="java" value="8450" />
+          <entry key="txt" value="758" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="7889" />
-          <entry key="PLAIN_TEXT" value="764" />
+          <entry key="JAVA" value="8450" />
+          <entry key="PLAIN_TEXT" value="809" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,11 +102,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Model/GroupData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+            <state relative-caret-position="527">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
-                <element signature="e#1061#1062#0" expanded="true" />
-                <element signature="e#1107#1108#0" expanded="true" />
+                <element signature="e#1469#1470#0" expanded="true" />
+                <element signature="e#1519#1520#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -509,11 +544,11 @@
         <option value="$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/EditContactTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/DeleteContactTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Model/GroupData.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Model/GroupData.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java" />
       </list>
     </option>
   </component>
@@ -603,7 +638,7 @@
     <property name="SearchEverywhereHistoryKey" value="contactData&#9;PSI&#9;JAVA://Model.ContactData&#10;optimizeimpo&#9;ACTION&#9;OptimizeImports" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544698639547" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544789793387" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -633,7 +668,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.DeleteGroupTest">
+  <component name="RunManager" selected="TestNG.CreateGroupTest">
     <configuration name="CreateGroupTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="homework_test" />
       <extension name="coverage">
@@ -723,9 +758,9 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.DeleteGroupTest" />
         <item itemvalue="TestNG.CreateGroupTest" />
         <item itemvalue="TestNG.EditGroupTest" />
+        <item itemvalue="TestNG.DeleteGroupTest" />
         <item itemvalue="TestNG.DeleteContactTest" />
         <item itemvalue="TestNG.EditContactTest" />
       </list>
@@ -756,7 +791,7 @@
       <workItem from="1543412349143" duration="5443000" />
       <workItem from="1544429008680" duration="1909000" />
       <workItem from="1544450990346" duration="13968000" />
-      <workItem from="1544697309148" duration="900000" />
+      <workItem from="1544697309148" duration="5033000" />
     </task>
     <task id="LOCAL-00001" summary="записан тест создания групп">
       <created>1542206624827</created>
@@ -940,22 +975,17 @@
       <option name="project" value="LOCAL" />
       <updated>1544610287881</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="сравнение списка групп до и после удаления">
+      <created>1544698675862</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1544698675862</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DeleteGroupTest - 2018.12.12 at 14h 36m 47s.xml">
-      <configuration name="DeleteGroupTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DeleteGroupTest - 2018.12.12 at 14h 38m 13s.xml">
-      <configuration name="DeleteGroupTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DeleteGroupTest - 2018.12.12 at 14h 38m 39s.xml">
-      <configuration name="DeleteGroupTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DeleteGroupTest - 2018.12.13 at 12h 51m 50s.xml">
-      <configuration name="DeleteGroupTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="CreateGroupTest - 2018.12.13 at 12h 53m 52s.xml">
       <configuration name="CreateGroupTest" configurationId="TestNG" />
     </history-entry>
@@ -974,15 +1004,27 @@
     <history-entry file="DeleteGroupTest - 2018.12.13 at 12h 54m 39s.xml">
       <configuration name="DeleteGroupTest" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="DeleteGroupTest - 2018.12.13 at 12h 56m 36s.xml">
+      <configuration name="DeleteGroupTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DeleteGroupTest - 2018.12.14 at 13h 49m 54s.xml">
+      <configuration name="DeleteGroupTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="EditGroupTest - 2018.12.14 at 13h 50m 11s.xml">
+      <configuration name="EditGroupTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="CreateGroupTest - 2018.12.14 at 14h 16m 26s.xml">
+      <configuration name="CreateGroupTest" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57781000" />
+    <option name="totallyTimeSpent" value="61914000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1554" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30522087" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30522087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -991,7 +1033,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.28277355" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49928468" visible="true" weight="0.28277355" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1038,7 +1080,8 @@
     <MESSAGE value="Реализована проверка и обеспечение предусловий" />
     <MESSAGE value="сравнение количества до и после теста" />
     <MESSAGE value="выбор определенного элемента для редактирования или удаления" />
-    <option name="LAST_COMMIT_MESSAGE" value="выбор определенного элемента для редактирования или удаления" />
+    <MESSAGE value="сравнение списка групп до и после удаления" />
+    <option name="LAST_COMMIT_MESSAGE" value="сравнение списка групп до и после удаления" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/Run.java">
@@ -1257,27 +1300,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/EditGroupTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        <state relative-caret-position="323">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Appmanager/GroupHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="76" column="30" selection-start-line="76" selection-start-column="30" selection-end-line="76" selection-end-column="30" />
+        <state relative-caret-position="427">
+          <caret line="77" column="30" lean-forward="true" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1286,22 +1332,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Model/GroupData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="44" column="39" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+        <state relative-caret-position="527">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1107#1108#0" expanded="true" />
+            <element signature="e#1469#1470#0" expanded="true" />
+            <element signature="e#1519#1520#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/DeleteGroupTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/CreateGroupTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="47" lean-forward="true" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="459">
+          <caret line="32" column="1" lean-forward="true" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
         </state>
       </provider>
     </entry>
