@@ -4,6 +4,9 @@ import Model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class EditContactTest extends TestBase {
 
     @Test
@@ -11,14 +14,17 @@ public class EditContactTest extends TestBase {
         if (!app.getContactHelper().isContactPresent()) {
             app.getContactHelper().createContact(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
         }
-        int before = app.getContactHelper().contactsAmount();
-        app.getContactHelper().initContactEdition(before - 1);
-        app.getContactHelper().fillContactsField(new ContactData("EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany"));
+        List<ContactData> before = app.getContactHelper().contactList();
+        app.getContactHelper().initContactEdition(before.size() - 1);
+        ContactData data = new ContactData(before.get(before.size()-1).getId(), "EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany");
+        app.getContactHelper().fillContactsField(data);
         app.getContactHelper().submitContactEditionForm();
         app.getNavigationHelper().goToHomePage();
-        int after = app.getContactHelper().contactsAmount();
+        List<ContactData> after = app.getContactHelper().contactList();
 
-        Assert.assertEquals(after, before);
+        before.remove(before.size() -1);
+        before.add(data);
+        Assert.assertEquals(new HashSet<Object>(after), new HashSet<Object>(before));
 
     }
 }
