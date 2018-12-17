@@ -4,6 +4,7 @@ import Model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -19,13 +20,7 @@ public class CreateGroupTest extends TestBase {
 
         Assert.assertEquals(after.size(), before.size() + 1);
 
-        int maxId = 0;
-        for (GroupData g : after) {
-            if (g.getId() > maxId) {
-                maxId = g.getId();
-            }
-        }
-        group.setId(maxId);
+        group.setId(after.stream().max(Comparator.comparingInt(GroupData::getId)).get().getId());
         before.add(group);
         Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
