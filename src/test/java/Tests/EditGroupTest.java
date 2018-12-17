@@ -14,7 +14,7 @@ public class EditGroupTest extends TestBase{
     public void checkPreconditions() {
         app.goTo().groupPage();
         if (app.group().list().size() == 0) {
-            app.group().create(new GroupData("Test name", "Test header", "Test footer"));
+            app.group().create(new GroupData().withName("test 1"));
         }
     }
 
@@ -22,7 +22,8 @@ public class EditGroupTest extends TestBase{
     public void testEditGroup() {
         List<GroupData> before = app.group().list();
         int index = before.size()-1;
-        GroupData group = new GroupData(before.get(before.size()-1).getId(), "Edit name", "Edit header", "Edit footer");
+        GroupData group = new GroupData()
+                .withId(before.get(before.size()-1).getId()).withName("Edit name").withHeader("Edit header").withFooter("Edit footer");
         app.group().edit(index, group);
         List<GroupData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size());
