@@ -9,11 +9,11 @@ public class NavigationHelper extends HelperBase {
         super(driver);
     }
 
-    public void goToContactsCreation() {
+    public void createContactPage() {
         click(By.linkText("add new"));
     }
 
-    public void goToGroups() {
+    public void groupPage() {
         if (isElementPresent(By.tagName("h1"))
                 && driver.findElement(By.tagName("h1")).getText().equals("Groups")
                 && isElementPresent(By.name("new"))) {
@@ -24,7 +24,7 @@ public class NavigationHelper extends HelperBase {
 
     }
 
-    public void goToHomePage() {
+    public void homePage() {
         if (!isElementPresent(By.id("maintable"))) {
             click(By.linkText("home"));
         }

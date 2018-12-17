@@ -53,14 +53,14 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void createGroup(GroupData group) {
+    public void create(GroupData group) {
         initGroupCreation();
         fillGroupFields(group);
         submitGroupCreationForm();
         returnToGroupPage();
     }
 
-    public void editGroup(int index, GroupData group) {
+    public void edit(int index, GroupData group) {
         checkGroup(index);
         initGroupEdition();
         fillGroupFields(group);
@@ -68,15 +68,17 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public boolean isGroupPresent() {
-        return isElementPresent(By.name("selected[]"));
-    }
-
     public int groupAmount() {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public List<GroupData> groupList() {
+    public void delete(int index) {
+        checkGroup(index);
+        initGroupDeletion();
+        returnToGroupPage();
+    }
+
+    public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<>();
         List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
         for (WebElement element : elements) {
