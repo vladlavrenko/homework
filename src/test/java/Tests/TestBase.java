@@ -2,19 +2,19 @@ package Tests;
 
 import Appmanager.ApplicationManager;
 import org.openqa.selenium.remote.BrowserType;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeSuite(alwaysRun = true)
     public void setUp() {
         app.init();
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void tearDown() {
         app.stop();
     }

@@ -12,6 +12,7 @@ public class EditContactTest extends TestBase {
 
     @Test
     public void testEditContact() {
+        app.getNavigationHelper().goToHomePage();
         if (!app.getContactHelper().isContactPresent()) {
             app.getContactHelper().createContact(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
         }

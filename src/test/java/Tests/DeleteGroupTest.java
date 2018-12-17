@@ -2,17 +2,23 @@ package Tests;
 
 import Model.GroupData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class DeleteGroupTest extends TestBase {
-    @Test
-    public void testGroupDelete() {
+
+    @BeforeMethod
+    public void checkPreconditions() {
         app.getNavigationHelper().goToGroups();
-        if (!app.getGroupHelper().isGroupPresent()) {
+        if (! app.getGroupHelper().isGroupPresent()) {
             app.getGroupHelper().createGroup(new GroupData("Test name", "Test header", "Test footer"));
         }
+    }
+
+    @Test
+    public void testGroupDelete() {
         List<GroupData> before = app.getGroupHelper().groupList();
         app.getGroupHelper().checkGroup(before.size() - 1);
         app.getGroupHelper().initGroupDeletion();
