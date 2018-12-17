@@ -68,7 +68,7 @@ public class ContactData {
         return "ContactData{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", middleName='" + middleName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 
@@ -77,13 +77,12 @@ public class ContactData {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(middleName, that.middleName);
+        return Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, firstName, middleName);
+        return Objects.hash(firstName, lastName);
     }
 }

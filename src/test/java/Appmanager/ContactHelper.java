@@ -57,13 +57,20 @@ public class ContactHelper extends HelperBase {
 
     public List<ContactData> contactList() {
         List<ContactData> contacts = new ArrayList<>();
-        List<WebElement> elements = driver.findElements(By.xpath("//td[@class='center']/input[@type='checkbox']"));
-        for (WebElement element : elements) {
-            String name = element.getText();
-            int id = Integer.parseInt(element.findElement(By.xpath("//input[@name='selected[]']")).getAttribute("value"));
-            ContactData contact = new ContactData(id, name, null, null, null, null, null);
+
+        //беру строки таблицы
+        List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
+        //получаю данные ячеек
+        for (int i = 0; i < allRows.size(); i++) {
+            int counter = i+1;
+            String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
+            String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
+            int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
+            ContactData contact = new ContactData(id, firstName, null, lastName, null, null,null);
             contacts.add(contact);
+
         }
+        System.out.println(contacts);
         return contacts;
     }
 }

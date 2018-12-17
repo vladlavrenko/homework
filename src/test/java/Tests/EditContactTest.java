@@ -4,6 +4,7 @@ import Model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -24,7 +25,10 @@ public class EditContactTest extends TestBase {
 
         before.remove(before.size() -1);
         before.add(data);
-        Assert.assertEquals(new HashSet<Object>(after), new HashSet<Object>(before));
+        Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
+        before.sort(byId);
+        after.sort(byId);
+        Assert.assertEquals(after, before);
 
     }
 }
