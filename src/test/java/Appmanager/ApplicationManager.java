@@ -10,7 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
     private WebDriver driver;
-
     private NavigationHelper navigationHelper;
     private GroupHelper groupHelper;
     private SessionHelper sessionHelper;
@@ -21,6 +20,7 @@ public class ApplicationManager {
         this.browser = browser;
     }
 
+    //Инициализация запуска браузера. Проверется какой браузер я хочу запустить
     public void init() {
         if (browser.equals(BrowserType.FIREFOX)) {
             driver = new FirefoxDriver();
@@ -31,7 +31,7 @@ public class ApplicationManager {
         } else {
             System.out.println("Incorrect browser");
         }
-
+        //Говорю, что ждать элементы не дольше 1 секунды
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);

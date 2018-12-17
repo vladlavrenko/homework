@@ -4,23 +4,37 @@ import Model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 public class CreateContactTest extends TestBase {
 
     @Test
     public void testCreateContact() {
+        //Беру список до изменения
         List<ContactData> before = app.getContactHelper().contactList();
-        ContactData contact = new ContactData(0, "CreateFirst1", "CreateMiddle2", "CreateLast3", "CreateNick", "CreateTitle", "CreateCompany");
+
+        //Добавляю новый контакт
+        ContactData contact = new ContactData(0, "CreateFirst2", "CreateMiddle3", "CreateLast4", "CreateNick", "CreateTitle", "CreateCompany");
         app.getNavigationHelper().goToContactsCreation();
         app.getContactHelper().createContact(contact);
+
+        //Беру список после изменения
         List<ContactData> after = app.getContactHelper().contactList();
 
-        Assert.assertEquals(after.size(), before.size() + 1);
+        //Присваиваю последней добавленной записи валидный ID
+        int maxId = after.stream().max(Comparator.comparingInt(ContactData::getId)).get().getId();
+        contact.setId(maxId);
+        before.add(contact);
 
-        //        before.add()
+        //Сортирую списки по ID
+        Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
+        after.sort(byId);
+        before.sort(byId);
 
-        Assert.assertEquals(before.size(), after.size());
+        //Сравниваю списки
+        Assert.assertEquals(after, before);
     }
 
 }
