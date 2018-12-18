@@ -7,7 +7,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    public static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() {

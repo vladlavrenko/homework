@@ -1,6 +1,7 @@
-package Tests;
+package Tests.Groups;
 
 import Model.GroupData;
+import Tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.Comparator;
 import java.util.List;
 
-public class EditGroupTest extends TestBase{
+public class EditGroupTest extends TestBase {
 
     @BeforeMethod
     public void checkPreconditions() {

@@ -1,6 +1,7 @@
-package Tests;
+package Tests.Groups;
 
 import Model.GroupData;
+import Tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
