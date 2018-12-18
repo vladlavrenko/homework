@@ -18,7 +18,7 @@ public class CreateContactTest extends TestBase {
         //Добавляю новый контакт
         ContactData contact = new ContactData(0, "CreateFirst2", "CreateMiddle3", "CreateLast4", "CreateNick", "CreateTitle", "CreateCompany");
         app.goTo().createContactPage();
-        app.contact().createContact(contact);
+        app.contact().create(contact);
 
         //Беру список после изменения
         List<ContactData> after = app.contact().contactList();

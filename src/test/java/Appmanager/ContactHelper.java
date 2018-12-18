@@ -46,11 +46,29 @@ public class ContactHelper extends HelperBase {
     }
 
     //мМтод который и начинает создавать контакт, и поля заполняет, и на кнопочки жмакает
-    public void createContact(ContactData contact) {
+    public void create(ContactData contact) {
         click(By.linkText("add new"));
         fillContactsField(contact);
         submitContactCreationForm();
         click(By.xpath("//a[contains(.,'home')]"));
+    }
+
+    public void delete(List<ContactData> before) {
+        initContactEdition(before.size() - 1);
+        submitContactDeletion();
+        goToHomePage();
+    }
+    public void edit(List<ContactData> before, ContactData data) {
+        initContactEdition(before.size() - 1);
+        fillContactsField(data);
+        submitContactEditionForm();
+        goToHomePage();
+    }
+
+    public void goToHomePage() {
+        if (!isElementPresent(By.id("maintable"))) {
+            click(By.linkText("home"));
+        }
     }
 
     //Проверка существует ли контакт, для обеспечения предусловия

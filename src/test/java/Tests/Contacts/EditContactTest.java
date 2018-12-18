@@ -3,6 +3,7 @@ package Tests.Contacts;
 import Model.ContactData;
 import Tests.TestBase;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -10,18 +11,21 @@ import java.util.List;
 
 public class EditContactTest extends TestBase {
 
+    @BeforeMethod
+    public void checkPreconditions() {
+        app.contact().goToHomePage();
+        if (!app.contact().isContactPresent()) {
+            app.contact().create(new ContactData
+                    ("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
+        }
+    }
+
     @Test
     public void testEditContact() {
-        app.goTo().homePage();
-        if (!app.contact().isContactPresent()) {
-            app.contact().createContact(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
-        }
         List<ContactData> before = app.contact().contactList();
-        app.contact().initContactEdition(before.size() - 1);
-        ContactData data = new ContactData(before.get(before.size()-1).getId(), "EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany");
-        app.contact().fillContactsField(data);
-        app.contact().submitContactEditionForm();
-        app.goTo().homePage();
+        ContactData data = new ContactData
+                (before.get(before.size()-1).getId(), "EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany");
+        app.contact().edit(before, data);
         List<ContactData> after = app.contact().contactList();
 
         before.remove(before.size() -1);
@@ -32,4 +36,5 @@ public class EditContactTest extends TestBase {
         Assert.assertEquals(after, before);
 
     }
+
 }
