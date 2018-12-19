@@ -6,22 +6,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(WebDriver driver) {
+    GroupHelper(WebDriver driver) {
         super(driver);
     }
 
-    public void fillGroupFields(GroupData groupData) {
+    private void fillGroupFields(GroupData groupData) {
         type(By.name("group_name"), groupData.getGroupName());
         type(By.name("group_header"), groupData.getGroupHeader());
         type(By.name("group_footer"), groupData.getGroupFooter());
     }
 
 
-    public void returnToGroupPage() {
+    private void returnToGroupPage() {
         if (!isElementPresent(By.linkText("group page"))) {
             return;
         } else {
@@ -29,27 +31,33 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public void submitGroupCreationForm() {
+    private void submitGroupCreationForm() {
         click(By.name("submit"));
     }
 
-    public void initGroupCreation() {
+    private void initGroupCreation() {
         click(By.name("new"));
     }
 
+    //Тут я выбирал группу по ее индексу в списке
     public void checkGroup(int index) {
         driver.findElements(By.name("selected[]")).get(index).click();
     }
 
-    public void initGroupEdition() {
+    //А тут я начал выбирать группу по ее ID, который я беру прямо со страницы
+    private void checkGroupById(int id) {
+        driver.findElement(By.cssSelector(String.format("input[value='%s']", id))).click();
+    }
+
+    private void initGroupEdition() {
         click(By.name("edit"));
     }
 
-    public void initGroupDeletion() {
+    private void initGroupDeletion() {
         click(By.name("delete"));
     }
 
-    public void submitGroupEditionForm() {
+    private void submitGroupEditionForm() {
         click(By.name("update"));
     }
 
@@ -60,8 +68,8 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public void edit(int index, GroupData group) {
-        checkGroup(index);
+    public void edit (GroupData group) {
+        checkGroupById(group.getId());
         initGroupEdition();
         fillGroupFields(group);
         submitGroupEditionForm();
@@ -72,14 +80,27 @@ public class GroupHelper extends HelperBase {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-    public void delete(int index) {
-        checkGroup(index);
+    //Удаляю группу по ее содержимому
+    public void delete(GroupData group) {
+        checkGroupById(group.getId());
         initGroupDeletion();
         returnToGroupPage();
     }
 
     public List<GroupData> list() {
         List<GroupData> groups = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            groups.add(new GroupData().withId(id).withName(name));
+        }
+        return groups;
+    }
+
+    //Вытаскиваю набор групп, а не список, как раньше
+    public Set<GroupData> all() {
+        Set<GroupData> groups = new HashSet<>();
         List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
         for (WebElement element : elements) {
             String name = element.getText();

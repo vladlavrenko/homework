@@ -6,7 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static Tests.TestBase.app;
 
@@ -79,28 +81,30 @@ public class ContactHelper extends HelperBase {
 
     //А тут весело. Нам нужен список контактов, чтобы сравнивать че там после изменений.
     public List<ContactData> list() {
-
-        //Создаем сам список, в который будем записывать то, что получается вытащить со страницы
         List<ContactData> contacts = new ArrayList<>();
-
-        //Берем все строки таблицы и суем их в список. Entry - это чтобы без первой строки с заголовками столбцов
         List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
-
-        //Начинаем построчно гонять и вытаскиывать нужную нам инфу (foreach не работает почему-то)
         for (int i = 0; i < allRows.size(); i++) {
             int counter = i+1;
-            //Вытаскиваю фамилию
             String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
-            //Вытаскиваю имя
             String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
-            //Вытаскиваю ID
             int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
-            //И хреначу это все в контакт...
-            ContactData contact = new ContactData().setId(id).withFirstName(firstName).withLastName(lastName);
-            //...который потом хреначу в список коонтактов
+            ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
             contacts.add(contact);
         }
-        //Метод не жадный, списком контактов поделится
+        return contacts;
+    }
+
+    public Set<ContactData> all() {
+        Set<ContactData> contacts = new HashSet<>();
+        List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
+        for (int i = 0; i < allRows.size(); i++) {
+            int counter = i+1;
+            String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
+            String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
+            int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
+            ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
+            contacts.add(contact);
+        }
         return contacts;
     }
 }

@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
+import java.util.Set;
 
 public class DeleteGroupTest extends TestBase {
 
@@ -20,13 +21,16 @@ public class DeleteGroupTest extends TestBase {
 
     @Test
     public void testGroupDelete() {
-        List<GroupData> before = app.group().list();
-        int index = before.size()-1;
-        app.group().delete(index);
-        List<GroupData> after = app.group().list();
+        Set<GroupData> before = app.group().all();
+        //Беру первую попавшуюся группу целиком
+        GroupData deletedGroup = before.iterator().next();
+        //Именно эту группу и удаляю
+        app.group().delete(deletedGroup);
+        Set<GroupData> after = app.group().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(index);
+        // А тут из набора групп удаляю удаленную группу
+        before.remove(deletedGroup);
         Assert.assertEquals(before, after);
 
     }

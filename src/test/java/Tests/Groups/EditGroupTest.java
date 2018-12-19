@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class EditGroupTest extends TestBase {
 
@@ -21,19 +22,16 @@ public class EditGroupTest extends TestBase {
 
     @Test
     public void testEditGroup() {
-        List<GroupData> before = app.group().list();
-        int index = before.size()-1;
+        Set<GroupData> before = app.group().all();
+        GroupData editedGroup = before.iterator().next();
         GroupData group = new GroupData()
-                .withId(before.get(before.size()-1).getId()).withName("Edit name").withHeader("Edit header").withFooter("Edit footer");
-        app.group().edit(index, group);
-        List<GroupData> after = app.group().list();
+                .withId(editedGroup.getId()).withName("Edit name").withHeader("Edit header").withFooter("Edit footer");
+        app.group().edit(group);
+        Set<GroupData> after = app.group().all();
         Assert.assertEquals(after.size(), before.size());
 
-        before.remove(index);
+        before.remove(editedGroup);
         before.add(group);
-        Comparator<? super GroupData> byId = Comparator.comparingInt(GroupData::getId);
-        before.sort(byId);
-        after.sort(byId);
         Assert.assertEquals(before, after);
 
     }

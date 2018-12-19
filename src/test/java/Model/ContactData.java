@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class ContactData {
     //Переменные ContactData - данные, которые есть у контактов
-    private int id;
+    private int id  = Integer.MAX_VALUE;
     private String firstName;
     private String middleName;
     private String lastName;
@@ -72,7 +72,7 @@ public class ContactData {
         return this;
     }
 
-    public ContactData setId(int id) {
+    public ContactData withId(int id) {
         this.id = id;
         return this;
     }

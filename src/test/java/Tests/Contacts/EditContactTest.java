@@ -35,7 +35,7 @@ public class EditContactTest extends TestBase {
         List<ContactData> after = app.contact().list();
 
         before.remove(index);
-        before.add(data.setId(before.get(before.size()-1).getId()));
+        before.add(data.withId(before.get(before.size()-1).getId()));
         Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
         before.sort(byId);
         after.sort(byId);
