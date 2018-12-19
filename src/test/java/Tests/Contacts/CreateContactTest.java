@@ -10,6 +10,11 @@ import java.util.List;
 
 public class CreateContactTest extends TestBase {
 
+    @BeforeMethod
+    public void checkPreconditions() {
+        app.goTo().homePage();
+    }
+
     @Test
     public void testCreateContact() {
         //Беру список до изменения

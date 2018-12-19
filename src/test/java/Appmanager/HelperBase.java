@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class HelperBase {
-    public WebDriver driver;
+class HelperBase {
+    WebDriver driver;
 
-    public HelperBase(WebDriver driver) {
+    HelperBase(WebDriver driver) {
         this.driver = driver;
     }
 
-    protected void type(By locator, String text) {
+    void type(By locator, String text) {
         click(locator);
         if (text != null) {
             String existingText = driver.findElement(locator).getAttribute("value");
@@ -22,11 +22,11 @@ public class HelperBase {
         }
     }
 
-    protected void click(By locator) {
+    void click(By locator) {
         driver.findElement(locator).click();
     }
 
-    protected boolean isElementPresent(By locator) {
+    boolean isElementPresent(By locator) {
         try {
             driver.findElement(locator);
             return true;

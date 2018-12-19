@@ -12,7 +12,7 @@ import java.util.List;
 public class DeleteContactTest extends TestBase {
     @BeforeMethod
     public void checkPreconditions() {
-        app.contact().goToHomePage();
+        app.goTo().homePage();
         if (!app.contact().isContactPresent()) {
             app.contact().create(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
         }

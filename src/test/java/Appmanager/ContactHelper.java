@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
+import static Tests.TestBase.app;
+
 public class ContactHelper extends HelperBase {
 
     //В класс передаю драйвер как параметр
@@ -16,7 +18,7 @@ public class ContactHelper extends HelperBase {
     }
 
     //Метод для заполнения полей формы
-    public void fillContactsField(ContactData contactData) {
+    private void fillContactsField(ContactData contactData) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("middlename"), contactData.getMiddleName());
         type(By.name("lastname"), contactData.getLastName());
@@ -26,22 +28,22 @@ public class ContactHelper extends HelperBase {
     }
 
     //Метод для нажимания на кнопку сейв
-    public void submitContactCreationForm() {
+    private void submitContactCreationForm() {
         click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
     }
 
     //Метод для начала редактирования контакта
-    public void initContactEdition(int index) {
+    private void initContactEdition(int index) {
         driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(index).click();
     }
 
     //Жмаканье на другую кнопку сейв
-    public void submitContactEditionForm() {
+    private void submitContactEditionForm() {
         click(By.xpath("//input[@value='Update']"));
     }
 
     //Жмаканье на кнопку удаления
-    public void submitContactDeletion() {
+    private void submitContactDeletion() {
         click(By.xpath("//input[@value='Delete']"));
     }
 
@@ -56,19 +58,13 @@ public class ContactHelper extends HelperBase {
     public void delete(List<ContactData> before) {
         initContactEdition(before.size() - 1);
         submitContactDeletion();
-        goToHomePage();
+        app.goTo().homePage();
     }
     public void edit(List<ContactData> before, ContactData data) {
         initContactEdition(before.size() - 1);
         fillContactsField(data);
         submitContactEditionForm();
-        goToHomePage();
-    }
-
-    public void goToHomePage() {
-        if (!isElementPresent(By.id("maintable"))) {
-            click(By.linkText("home"));
-        }
+        app.goTo().homePage();
     }
 
     //Проверка существует ли контакт, для обеспечения предусловия

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NavigationHelper extends HelperBase {
 
-    public NavigationHelper(WebDriver driver) {
+    NavigationHelper(WebDriver driver) {
         super(driver);
     }
 
@@ -21,6 +21,10 @@ public class NavigationHelper extends HelperBase {
         } else {
             click(By.linkText("groups"));
         }
-
+    }
+    public void homePage() {
+        if (!isElementPresent(By.id("maintable"))) {
+            click(By.linkText("home"));
+        }
     }
 }
