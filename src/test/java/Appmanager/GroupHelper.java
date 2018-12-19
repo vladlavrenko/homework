@@ -6,10 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import javax.swing.*;
 import java.util.List;
-import java.util.Set;
 
 public class GroupHelper extends HelperBase {
 
@@ -40,11 +38,6 @@ public class GroupHelper extends HelperBase {
         click(By.name("new"));
     }
 
-    //Тут я выбирал группу по ее индексу в списке
-    public void checkGroup(int index) {
-        driver.findElements(By.name("selected[]")).get(index).click();
-    }
-
     //А тут я начал выбирать группу по ее ID, который я беру прямо со страницы
     private void checkGroupById(int id) {
         driver.findElement(By.cssSelector(String.format("input[value='%s']", id))).click();
@@ -66,6 +59,7 @@ public class GroupHelper extends HelperBase {
         initGroupCreation();
         fillGroupFields(group);
         submitGroupCreationForm();
+        groupCache = null;
         returnToGroupPage();
     }
 
@@ -74,40 +68,31 @@ public class GroupHelper extends HelperBase {
         initGroupEdition();
         fillGroupFields(group);
         submitGroupEditionForm();
+        groupCache = null;
         returnToGroupPage();
-    }
-
-    public int groupAmount() {
-        return driver.findElements(By.name("selected[]")).size();
     }
 
     //Удаляю группу по ее содержимому
     public void delete(GroupData group) {
         checkGroupById(group.getId());
         initGroupDeletion();
+        groupCache = null;
         returnToGroupPage();
     }
 
-    public List<GroupData> list() {
-        List<GroupData> groups = new ArrayList<>();
-        List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
-        for (WebElement element : elements) {
-            String name = element.getText();
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            groups.add(new GroupData().withId(id).withName(name));
-        }
-        return groups;
-    }
-
+    private Groups groupCache = null;
     //Вытаскиваю набор групп, а не список, как раньше
     public Groups all() {
-        Groups groups = new Groups();
+        if (groupCache != null) {
+            return new Groups(groupCache);
+        }
+        groupCache = new Groups();
         List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
         for (WebElement element : elements) {
             String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-            groups.add(new GroupData().withId(id).withName(name));
+            groupCache.add(new GroupData().withId(id).withName(name));
         }
-        return groups;
+        return new Groups(groupCache);
     }
 }
