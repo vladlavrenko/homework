@@ -22,23 +22,20 @@ public class EditContactTest extends TestBase {
     @Test
     public void testEditContact() {
         List<ContactData> before = app.contact().list();
-        ContactData data = new ContactData()
+        ContactData editedContact = before.iterator().next();
+
+        ContactData contact = new ContactData()
                 .withFirstName("EditFirst")
                 .withMiddleName("EditMiddle")
                 .withLastName("EditLast")
                 .withNickName("EditNick")
                 .withTitle("EditTitle")
                 .withCompany("EditCompany");
-
-        int index = before.size() - 1;
-        app.contact().edit(index, data);
+        app.contact().edit(editedContact);
         List<ContactData> after = app.contact().list();
 
-        before.remove(index);
-        before.add(data.withId(before.get(before.size()-1).getId()));
-        Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
-        before.sort(byId);
-        after.sort(byId);
+        before.remove(editedContact);
+        before.add(contact);
         Assert.assertEquals(after, before);
 
     }

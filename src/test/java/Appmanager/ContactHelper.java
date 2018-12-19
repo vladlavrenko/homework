@@ -34,9 +34,9 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
     }
 
-    //Метод для начала редактирования контакта
-    private void initContactEdition(int id) {
-        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(id).click();
+
+    private void initContactEditionById(int id) {
+        driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
 
     private void initContactDeletionById(int id) {
@@ -48,12 +48,8 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Update']"));
     }
 
-    //Жмаканье на кнопку удаления
-    private void submitContactDeletion() {
-        click(By.xpath("//input[@value='Delete']"));
-    }
 
-    //мМтод который и начинает создавать контакт, и поля заполняет, и на кнопочки жмакает
+    //Метод который и начинает создавать контакт, и поля заполняет, и на кнопочки жмакает
     public void create(ContactData contact) {
         click(By.linkText("add new"));
         fillContactsField(contact);
@@ -68,21 +64,12 @@ public class ContactHelper extends HelperBase {
         Thread.sleep(200);
         app.goTo().homePage();
     }
-    public void edit(int index, ContactData data) {
-        initContactEdition(index);
-        fillContactsField(data);
+
+    public void edit(ContactData contact) {
+        initContactEditionById(contact.getId());
+        fillContactsField(contact);
         submitContactEditionForm();
         app.goTo().homePage();
-    }
-
-    //Проверка существует ли контакт, для обеспечения предусловия. Уже не используется
-    public boolean isContactPresent() {
-        return isElementPresent(By.name("selected[]"));
-    }
-
-    //Метод, который считает количество созданных контактов. Уже нинада, но пусть будет
-    public int contactsAmount() {
-        return driver.findElements(By.name("selected[]")).size();
     }
 
     //А тут весело. Нам нужен список контактов, чтобы сравнивать че там после изменений.
