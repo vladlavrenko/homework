@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 public class EditContactTest extends TestBase {
 
@@ -21,7 +22,7 @@ public class EditContactTest extends TestBase {
 
     @Test
     public void testEditContact() {
-        List<ContactData> before = app.contact().list();
+        Set<ContactData> before = app.contact().all();
         ContactData editedContact = before.iterator().next();
 
         ContactData contact = new ContactData()
@@ -32,7 +33,7 @@ public class EditContactTest extends TestBase {
                 .withTitle("EditTitle")
                 .withCompany("EditCompany");
         app.contact().edit(editedContact);
-        List<ContactData> after = app.contact().list();
+        Set<ContactData> after = app.contact().all();
 
         before.remove(editedContact);
         before.add(contact);
