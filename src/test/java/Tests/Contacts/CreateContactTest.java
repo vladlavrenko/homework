@@ -1,7 +1,6 @@
 package Tests.Contacts;
 
 import Model.ContactData;
-import Model.Contacts;
 import Tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.*;
