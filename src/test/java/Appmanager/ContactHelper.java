@@ -53,6 +53,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
         fillContactsField(contact);
         submitContactCreationForm();
+        contactCache = null;
         click(By.xpath("//a[contains(.,'home')]"));
     }
 
@@ -61,6 +62,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
         driver.switchTo().alert().accept();
         Thread.sleep(200);
+        contactCache = null;
         app.goTo().homePage();
     }
 
@@ -68,10 +70,16 @@ public class ContactHelper extends HelperBase {
         initContactEditionById(contact.getId());
         fillContactsField(contact);
         submitContactEditionForm();
+        contactCache = null;
         app.goTo().homePage();
     }
 
+    private Contacts contactCache = null;
     public Contacts all() {
+        if (contactCache != null) {
+            return new Contacts(contactCache);
+        }
+        contactCache = new Contacts();
         Contacts contacts = new Contacts();
         List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
         for (int i = 0; i < allRows.size(); i++) {
@@ -79,9 +87,8 @@ public class ContactHelper extends HelperBase {
             String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
             String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
             int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
-            contacts.add(contact);
+            contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
         }
-        return contacts;
+        return new Contacts(contactCache);
     }
 }
