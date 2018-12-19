@@ -1,26 +1,32 @@
 package Tests.Contacts;
 
 import Model.ContactData;
+import Model.Contacts;
 import Tests.TestBase;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Set;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
+
 public class EditContactTest extends TestBase {
 
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().homePage();
-        if (app.contact().list().size() == 0) {
+        if (app.contact().all().size() == 0) {
             app.contact().create(new ContactData().withFirstName("name"));
         }
     }
 
     @Test
     public void testEditContact() {
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         ContactData editedContact = before.iterator().next();
 
         ContactData contact = new ContactData()
@@ -31,11 +37,9 @@ public class EditContactTest extends TestBase {
                 .withTitle("EditTitle")
                 .withCompany("EditCompany");
         app.contact().edit(editedContact);
-        Set<ContactData> after = app.contact().all();
+        Contacts after = app.contact().all();
 
-        before.remove(editedContact);
-        before.add(contact);
-        Assert.assertEquals(after, before);
+        assertThat(after, equalTo(before.withEdited(contact, editedContact)));
 
     }
 

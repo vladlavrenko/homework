@@ -1,14 +1,13 @@
 package Appmanager;
 
 import Model.ContactData;
+import Model.Contacts;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import static Tests.TestBase.app;
 
@@ -72,23 +71,8 @@ public class ContactHelper extends HelperBase {
         app.goTo().homePage();
     }
 
-    //А тут весело. Нам нужен список контактов, чтобы сравнивать че там после изменений.
-    public List<ContactData> list() {
-        List<ContactData> contacts = new ArrayList<>();
-        List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
-        for (int i = 0; i < allRows.size(); i++) {
-            int counter = i+1;
-            String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
-            String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
-            int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData().withId(id).withFirstName(firstName).withLastName(lastName);
-            contacts.add(contact);
-        }
-        return contacts;
-    }
-
-    public Set<ContactData> all() {
-        Set<ContactData> contacts = new HashSet<>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
         for (int i = 0; i < allRows.size(); i++) {
             int counter = i+1;
