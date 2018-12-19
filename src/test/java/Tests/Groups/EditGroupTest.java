@@ -30,6 +30,7 @@ public class EditGroupTest extends TestBase {
         GroupData group = new GroupData()
                 .withId(editedGroup.getId()).withName("Edit name").withHeader("Edit header").withFooter("Edit footer");
         app.group().edit(group);
+        assertThat(app.group().count(), equalTo(before.size()   ));
         Groups after = app.group().all();
         assertEquals(after.size(), before.size());
 
