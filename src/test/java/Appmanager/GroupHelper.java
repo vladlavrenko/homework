@@ -1,6 +1,7 @@
 package Appmanager;
 
 import Model.GroupData;
+import Model.Groups;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -99,8 +100,8 @@ public class GroupHelper extends HelperBase {
     }
 
     //Вытаскиваю набор групп, а не список, как раньше
-    public Set<GroupData> all() {
-        Set<GroupData> groups = new HashSet<>();
+    public Groups all() {
+        Groups groups = new Groups();
         List<WebElement> elements = driver.findElements(By.xpath("//span[contains(@class,'group')]"));
         for (WebElement element : elements) {
             String name = element.getText();
