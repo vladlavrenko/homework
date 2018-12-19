@@ -35,8 +35,12 @@ public class ContactHelper extends HelperBase {
     }
 
     //Метод для начала редактирования контакта
-    private void initContactEdition(int index) {
-        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(index).click();
+    private void initContactEdition(int id) {
+        driver.findElements(By.xpath("(//img[@alt='Edit'])")).get(id).click();
+    }
+
+    private void initContactDeletionById(int id) {
+        driver.findElement(By.xpath(String.format("//input[@value='%s']", id))).click();
     }
 
     //Жмаканье на другую кнопку сейв
@@ -57,9 +61,11 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//a[contains(.,'home')]"));
     }
 
-    public void delete(int index) {
-        initContactEdition(index);
-        submitContactDeletion();
+    public void delete(ContactData contact) throws InterruptedException {
+        initContactDeletionById(contact.getId());
+        click(By.xpath("//input[@value='Delete']"));
+        driver.switchTo().alert().accept();
+        Thread.sleep(200);
         app.goTo().homePage();
     }
     public void edit(int index, ContactData data) {

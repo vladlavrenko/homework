@@ -32,7 +32,7 @@ public class ApplicationManager {
             System.out.println("Incorrect browser");
         }
         //Говорю, что ждать элементы не дольше 1 секунды
-        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         navigationHelper = new NavigationHelper(driver);
         sessionHelper = new SessionHelper(driver);
         driver.get("http://localhost/addressbook/");

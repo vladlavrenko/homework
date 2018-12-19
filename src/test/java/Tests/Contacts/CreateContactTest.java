@@ -5,7 +5,6 @@ import Tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-import java.util.Comparator;
 import java.util.Set;
 
 public class CreateContactTest extends TestBase {
