@@ -55,19 +55,19 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//a[contains(.,'home')]"));
     }
 
-    public void delete(List<ContactData> before) {
-        initContactEdition(before.size() - 1);
+    public void delete(int index) {
+        initContactEdition(index);
         submitContactDeletion();
         app.goTo().homePage();
     }
-    public void edit(List<ContactData> before, ContactData data) {
-        initContactEdition(before.size() - 1);
+    public void edit(int index, ContactData data) {
+        initContactEdition(index);
         fillContactsField(data);
         submitContactEditionForm();
         app.goTo().homePage();
     }
 
-    //Проверка существует ли контакт, для обеспечения предусловия
+    //Проверка существует ли контакт, для обеспечения предусловия. Уже не используется
     public boolean isContactPresent() {
         return isElementPresent(By.name("selected[]"));
     }
@@ -78,7 +78,7 @@ public class ContactHelper extends HelperBase {
     }
 
     //А тут весело. Нам нужен список контактов, чтобы сравнивать че там после изменений.
-    public List<ContactData> contactList() {
+    public List<ContactData> list() {
 
         //Создаем сам список, в который будем записывать то, что получается вытащить со страницы
         List<ContactData> contacts = new ArrayList<>();
@@ -96,7 +96,7 @@ public class ContactHelper extends HelperBase {
             //Вытаскиваю ID
             int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
             //И хреначу это все в контакт...
-            ContactData contact = new ContactData(id, firstName, null, lastName, null, null,null);
+            ContactData contact = new ContactData().setId(id).withFirstName(firstName).withLastName(lastName);
             //...который потом хреначу в список коонтактов
             contacts.add(contact);
         }

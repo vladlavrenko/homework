@@ -18,15 +18,15 @@ public class CreateContactTest extends TestBase {
     @Test
     public void testCreateContact() {
         //Беру список до изменения
-        List<ContactData> before = app.contact().contactList();
+        List<ContactData> before = app.contact().list();
 
         //Добавляю новый контакт
-        ContactData contact = new ContactData(0, "CreateFirst2", "CreateMiddle3", "CreateLast4", "CreateNick", "CreateTitle", "CreateCompany");
+        ContactData contact = new ContactData().withFirstName("Test name").withMiddleName("Test middle").withLastName("Test last");
         app.goTo().createContactPage();
         app.contact().create(contact);
 
         //Беру список после изменения
-        List<ContactData> after = app.contact().contactList();
+        List<ContactData> after = app.contact().list();
 
         //Присваиваю последней добавленной записи валидный ID
         int maxId = after.stream().max(Comparator.comparingInt(ContactData::getId)).get().getId();

@@ -14,22 +14,28 @@ public class EditContactTest extends TestBase {
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().homePage();
-        if (!app.contact().isContactPresent()) {
-            app.contact().create(new ContactData
-                    ("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
+        if (app.contact().list().size() == 0) {
+            app.contact().create(new ContactData().withFirstName("name"));
         }
     }
 
     @Test
     public void testEditContact() {
-        List<ContactData> before = app.contact().contactList();
-        ContactData data = new ContactData
-                (before.get(before.size()-1).getId(), "EditFirst", "EditMiddle","EditLast","EditNick","EditTitle", "EditCompany");
-        app.contact().edit(before, data);
-        List<ContactData> after = app.contact().contactList();
+        List<ContactData> before = app.contact().list();
+        ContactData data = new ContactData()
+                .withFirstName("EditFirst")
+                .withMiddleName("EditMiddle")
+                .withLastName("EditLast")
+                .withNickName("EditNick")
+                .withTitle("EditTitle")
+                .withCompany("EditCompany");
 
-        before.remove(before.size() -1);
-        before.add(data);
+        int index = before.size() - 1;
+        app.contact().edit(index, data);
+        List<ContactData> after = app.contact().list();
+
+        before.remove(index);
+        before.add(data.setId(before.get(before.size()-1).getId()));
         Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
         before.sort(byId);
         after.sort(byId);

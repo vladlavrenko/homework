@@ -13,20 +13,21 @@ public class DeleteContactTest extends TestBase {
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().homePage();
-        if (!app.contact().isContactPresent()) {
-            app.contact().create(new ContactData("CreateFirst", "CreateMiddle","CreateLast","CreateNick","CreateTitle","CreateCompany"));
+        if (app.contact().list().size() == 0) {
+            app.contact().create(new ContactData().withFirstName("CreateFirst"));
         }
     }
 
     @Test
     public void testDeleteContact() {
-        List<ContactData> before = app.contact().contactList();
-        app.contact().delete(before);
-        List<ContactData> after = app.contact().contactList();
+        List<ContactData> before = app.contact().list();
+        int index = before.size() - 1;
+        app.contact().delete(index);
+        List<ContactData> after = app.contact().list();
 
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size()-1);
+        before.remove(index);
         Comparator<? super ContactData> byId = Comparator.comparingInt(ContactData::getId);
         before.sort(byId);
         after.sort(byId);
