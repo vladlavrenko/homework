@@ -28,9 +28,16 @@ public class Groups extends ForwardingSet<GroupData> {
         return groups;
     }
 
-    public Groups withoutAdded(GroupData group) {
+    public Groups without(GroupData group) {
         Groups groups = new Groups(this);
         groups.remove(group);
+        return groups;
+    }
+
+    public Groups withEdited (GroupData group, GroupData editedGroup) {
+        Groups groups = new Groups(this);
+        groups.remove(editedGroup);
+        groups.add(group);
         return groups;
     }
 }

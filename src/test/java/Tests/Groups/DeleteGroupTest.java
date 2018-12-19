@@ -1,13 +1,14 @@
 package Tests.Groups;
 
 import Model.GroupData;
+import Model.Groups;
 import Tests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import java.util.List;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
 
 public class DeleteGroupTest extends TestBase {
 
@@ -21,17 +22,17 @@ public class DeleteGroupTest extends TestBase {
 
     @Test
     public void testGroupDelete() {
-        Set<GroupData> before = app.group().all();
+        Groups before = app.group().all();
         //Беру первую попавшуюся группу целиком
         GroupData deletedGroup = before.iterator().next();
         //Именно эту группу и удаляю
         app.group().delete(deletedGroup);
-        Set<GroupData> after = app.group().all();
+        Groups after = app.group().all();
         Assert.assertEquals(after.size(), before.size() - 1);
 
         // А тут из набора групп удаляю удаленную группу
         before.remove(deletedGroup);
-        Assert.assertEquals(before, after);
+        assertThat(after, equalTo(before.without(deletedGroup)));
 
     }
 
