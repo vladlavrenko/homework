@@ -32,6 +32,10 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Notes:'])[1]/following::input[1]"));
     }
 
+    public int count() {
+        return driver.findElements(By.name("selected[]")).size();
+    }
+
 
     private void initContactEditionById(int id) {
         driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
