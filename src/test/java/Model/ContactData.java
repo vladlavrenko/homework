@@ -19,6 +19,7 @@ public class ContactData {
     private String email;
     private String email1;
     private String email2;
+    private String allPhones;
 
 
     //Гетеры
@@ -61,7 +62,9 @@ public class ContactData {
     public String getEmail2() {
         return email2;
     }
-
+    public String getAllPhones() {
+        return allPhones;
+    }
     public int getId() {
         return id;
     }
@@ -122,6 +125,10 @@ public class ContactData {
     }
     public ContactData withEmail3(String email3) {
         this.email2 = email2;
+        return this;
+    }
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
         return this;
     }
 
