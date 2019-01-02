@@ -13,7 +13,7 @@ import static Tests.TestBase.app;
 public class ContactHelper extends HelperBase {
 
     //В класс передаю драйвер как параметр
-    ContactHelper (WebDriver driver) {
+    ContactHelper(WebDriver driver) {
         super(driver);
     }
 
@@ -78,6 +78,7 @@ public class ContactHelper extends HelperBase {
     }
 
     private Contacts contactCache = null;
+
     public Contacts all() {
         if (contactCache != null) {
             return new Contacts(contactCache);
@@ -85,13 +86,34 @@ public class ContactHelper extends HelperBase {
         contactCache = new Contacts();
         Contacts contacts = new Contacts();
         List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
-        for (int i = 0; i < allRows.size(); i++) {
-            int counter = i+1;
-            String lastName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[2]", counter))).getText();
-            String firstName = allRows.get(i).findElement(By.xpath(String.format("//tr[@name = 'entry'][%s]/td[3]", counter))).getText();
-            int id = Integer.parseInt(allRows.get(i).findElement(By.tagName("input")).getAttribute("id"));
-            contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
+        for (WebElement row : allRows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            int id = Integer.parseInt(cells.get(0).findElement(By.tagName("input")).getAttribute("id"));
+            String lastName = cells.get(1).getText();
+            String firstName = cells.get(2).getText();
+            String[] phones = cells.get(5).getText().split("\n");
+            contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
+                    .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
         }
         return new Contacts(contactCache);
+    }
+
+    public void setContactCache(Contacts contactCache) {
+        this.contactCache = contactCache;
+    }
+
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactEditionById(contact.getId());
+        String address = driver.findElement(By.name("address")).getAttribute("value");
+        String email = driver.findElement(By.name("email")).getAttribute("value");
+        String email2 = driver.findElement(By.name("email2")).getAttribute("value");
+        String email3 = driver.findElement(By.name("email3")).getAttribute("value");
+        String homePhone = driver.findElement(By.name("home")).getAttribute("value");
+        String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
+        String workPhone = driver.findElement(By.name("work")).getAttribute("value");
+        driver.navigate().back();
+        return new ContactData().withId(contact.getId())
+                .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3)
+                .withMobilePhone(mobilePhone).withHomePhone(homePhone).withWorkPhone(workPhone);
     }
 }
