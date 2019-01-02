@@ -24,7 +24,15 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("nickname"), contactData.getNickName());
         type(By.name("title"), contactData.getTitle());
-        type(By.name("company"), contactData.getCompany());
+        type(By.name("address"), contactData.getAddress());
+        type(By.name("email"), contactData.getEmail());
+        type(By.name("email2"), contactData.getEmail2());
+        type(By.name("email3"), contactData.getEmail3());
+        type(By.name("home"), contactData.getHomePhone());
+        type(By.name("mobile"), contactData.getMobilePhone());
+        type(By.name("work"), contactData.getWorkPhone());
+
+
     }
 
     //Метод для нажимания на кнопку сейв
@@ -39,6 +47,9 @@ public class ContactHelper extends HelperBase {
 
     private void initContactEditionById(int id) {
         driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
+    }
+    private void initContactEdition() {
+        driver.findElement(By.xpath("//td/..//img[@title='Edit']")).click();
     }
 
     private void initContactDeletionById(int id) {
@@ -69,7 +80,7 @@ public class ContactHelper extends HelperBase {
         app.goTo().homePage();
     }
 
-    public void edit(ContactData contact) {
+    public void editById(ContactData contact) {
         initContactEditionById(contact.getId());
         fillContactsField(contact);
         submitContactEditionForm();
@@ -92,8 +103,9 @@ public class ContactHelper extends HelperBase {
             String lastName = cells.get(1).getText();
             String firstName = cells.get(2).getText();
             String allPhones = cells.get(5).getText();
+            String allEmails = cells.get(4).getText();
             contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
-                    .withAllPhones(allPhones));
+                    .withAllPhones(allPhones).withAllEmails(allEmails));
         }
         return new Contacts(contactCache);
     }
@@ -102,8 +114,8 @@ public class ContactHelper extends HelperBase {
         this.contactCache = contactCache;
     }
 
-    public ContactData infoFromEditForm(ContactData contact) {
-        initContactEditionById(contact.getId());
+    public ContactData infoFromEditForm() {
+        initContactEdition();
         String address = driver.findElement(By.name("address")).getAttribute("value");
         String email = driver.findElement(By.name("email")).getAttribute("value");
         String email2 = driver.findElement(By.name("email2")).getAttribute("value");
@@ -112,8 +124,15 @@ public class ContactHelper extends HelperBase {
         String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
         String workPhone = driver.findElement(By.name("work")).getAttribute("value");
         driver.navigate().back();
-        return new ContactData().withId(contact.getId())
+        return new ContactData()
                 .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3)
                 .withMobilePhone(mobilePhone).withHomePhone(homePhone).withWorkPhone(workPhone);
+    }
+
+    public String isEmailPresent() {
+        return driver.findElement(By.xpath("//td[5]")).getText();
+    }
+    public String isPhonePresent() {
+        return driver.findElement(By.xpath("//td[6]")).getText();
     }
 }

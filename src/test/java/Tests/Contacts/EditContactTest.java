@@ -32,7 +32,7 @@ public class EditContactTest extends TestBase {
                 .withNickName("EditNick")
                 .withTitle("EditTitle")
                 .withCompany("EditCompany");
-        app.contact().edit(editedContact);
+        app.contact().editById(editedContact);
         Contacts after = app.contact().all();
 
         assertThat(after, equalTo(before.withEdited(contact, editedContact)));

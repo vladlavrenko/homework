@@ -2,6 +2,7 @@ package Tests.Contacts;
 
 import Model.ContactData;
 import Tests.TestBase;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
@@ -12,11 +13,30 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PhoneContactTest extends TestBase {
 
+    @BeforeMethod
+    public void checkPreconditions() {
+        app.goTo().homePage();
+        if (app.contact().all().size() == 0) {
+            app.contact().create(new ContactData()
+                    .withFirstName("name")
+                    .withHomePhone("123-132 (1231231) 123")
+                    .withMobilePhone("123123123-12312313()()))")
+                    .withWorkPhone("123123123 --  -- 12313123 1  ()()()"));
+        } else if (app.contact().isPhonePresent().equals("")) {
+            app.contact().create(new ContactData()
+                    .withFirstName("name")
+                    .withHomePhone("123-132 (1231231) 123")
+                    .withMobilePhone("123123123-12312313()()))")
+                    .withWorkPhone("123123123 --  -- 12313123 1  ()()()"));
+        } else {
+            return;
+        }
+    }
+
     @Test
     public void testCheckContactPhone() {
-        app.goTo().homePage();
         ContactData contact = app.contact().all().iterator().next();
-        ContactData infoFromEditForm = app.contact().infoFromEditForm(contact);
+        ContactData infoFromEditForm = app.contact().infoFromEditForm();
         assertThat(contact.getAllPhones(), equalTo(mergePhones(infoFromEditForm)));
     }
 
@@ -28,6 +48,6 @@ public class PhoneContactTest extends TestBase {
     }
 
     public static String cleaned(String phone) {
-        return phone.replaceAll("\\s", "").replaceAll("[-()]","");
+        return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
     }
 }
