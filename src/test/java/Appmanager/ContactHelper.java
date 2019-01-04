@@ -67,7 +67,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
         fillContactsField(contact);
         submitContactCreationForm();
-        contactCache = null;
+        contactCache = contactCache.withAdded(contact.withId(contactCache.stream().mapToInt(ContactData::getId).max().getAsInt()));
         click(By.xpath("//a[contains(.,'home')]"));
     }
 
@@ -76,7 +76,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
         driver.switchTo().alert().accept();
         Thread.sleep(200);
-        contactCache = null;
+        contactCache = contactCache.without(contact);
         app.goTo().homePage();
     }
 
@@ -153,7 +153,6 @@ public class ContactHelper extends HelperBase {
         String homePhone = data[3].substring(3);
         String mobilePhone = data[4].substring(3);
         String workPhone = data[5].substring(3);
-//        .replaceAll(" ", "").replaceAll("\\W", "").replaceAll("\\s", "")
         String email = data[7];
         String email2 = data[8];
         String email3 = data[9];

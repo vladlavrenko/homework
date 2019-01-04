@@ -9,16 +9,18 @@ import org.testng.annotations.Test;
 
 public class DetailedViewContactTest extends TestBase {
     static ContactData contact;
+
     @BeforeMethod
     public static void preconditions() {
+        app.contact().all();
         contact = new ContactData().withFirstName("first").withLastName("last").withAddress("address")
                 .withEmail("email").withEmail2("email2").withEmail3("email3")
                 .withMobilePhone("12313asd ()--d4564").withHomePhone("546546").withWorkPhone("6465465464");
         app.contact().create(contact);
-        contact.withId(app.contact().all().stream().mapToInt((c) -> c.getId()).max().getAsInt());
+        contact.withId(app.contact().all().stream().mapToInt(ContactData::getId).max().getAsInt());
     }
 
-    @Test
+    @Test(invocationCount = 10)
     public static void testDetailedViewContact() {
         ContactData infoFromDetailedView = app.contact().infoFromDetailedView(contact);
         ContactData infoFromEditFrom = app.contact().infoFromEditForm(contact);

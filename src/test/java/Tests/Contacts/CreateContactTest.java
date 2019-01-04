@@ -29,7 +29,7 @@ public class CreateContactTest extends TestBase {
         Set<ContactData> after = app.contact().all();
         assertThat(after.size(), equalTo(before.size() + 1));
 
-        contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt());
+        contact.withId(after.stream().mapToInt(ContactData::getId).max().getAsInt());
         before.add(contact);
 
         Assert.assertEquals(after, before);
