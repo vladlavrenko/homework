@@ -28,7 +28,7 @@ public class EmailContactTest extends TestBase {
     @Test
     public void testCheckContactEmail() {
         ContactData contact = app.contact().all().iterator().next();
-        ContactData infoFromEditForm = app.contact().infoFromEditForm();
+        ContactData infoFromEditForm = app.contact().infoFromEditForm(contact);
         assertThat(contact.getAllEmails(), equalTo(emails(infoFromEditForm)));
     }
 

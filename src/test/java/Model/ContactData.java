@@ -21,7 +21,7 @@ public class ContactData {
     private String email3;
     private String allPhones;
     private String allEmails;
-
+    private String fullName;
 
     //Гетеры
     public String getFirstName() {
@@ -71,6 +71,9 @@ public class ContactData {
     }
     public String getAllEmails() {
         return allEmails;
+    }
+    public String getFullName() {
+        return fullName;
     }
 
 
@@ -140,8 +143,10 @@ public class ContactData {
         this.allEmails = allEmails;
         return this;
     }
-
-
+    public ContactData withFullName(String fullName) {
+        this.fullName = fullName;
+        return this;
+    }
 
     //Перевод из крякозябр на человеческий язык
     @Override

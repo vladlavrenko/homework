@@ -44,10 +44,10 @@ public class ContactHelper extends HelperBase {
         return driver.findElements(By.name("selected[]")).size();
     }
 
-
     private void initContactEditionById(int id) {
         driver.findElement(By.cssSelector(String.format("a[href='edit.php?id=%s']", id))).click();
     }
+
     private void initContactEdition() {
         driver.findElement(By.xpath("//td/..//img[@title='Edit']")).click();
     }
@@ -114,8 +114,10 @@ public class ContactHelper extends HelperBase {
         this.contactCache = contactCache;
     }
 
-    public ContactData infoFromEditForm() {
-        initContactEdition();
+    public ContactData infoFromEditForm(ContactData contact) {
+        initContactEditionById(contact.getId());
+        String firstName = driver.findElement(By.name("firstname")).getAttribute("value");
+        String lastName = driver.findElement(By.name("lastname")).getAttribute("value");
         String address = driver.findElement(By.name("address")).getAttribute("value");
         String email = driver.findElement(By.name("email")).getAttribute("value");
         String email2 = driver.findElement(By.name("email2")).getAttribute("value");
@@ -124,15 +126,34 @@ public class ContactHelper extends HelperBase {
         String mobilePhone = driver.findElement(By.name("mobile")).getAttribute("value");
         String workPhone = driver.findElement(By.name("work")).getAttribute("value");
         driver.navigate().back();
-        return new ContactData()
-                .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3)
+        return new ContactData().withFullName(firstName + " " + lastName).withAddress(address)
+                .withEmail(email).withEmail2(email2).withEmail3(email3)
                 .withMobilePhone(mobilePhone).withHomePhone(homePhone).withWorkPhone(workPhone);
     }
 
     public String isEmailPresent() {
         return driver.findElement(By.xpath("//td[5]")).getText();
     }
+
     public String isPhonePresent() {
         return driver.findElement(By.xpath("//td[6]")).getText();
+    }
+
+    public ContactData infoFromDetailedView(ContactData contact) {
+        click(By.cssSelector(String.format("a[href='view.php?id=%s']", contact.getId())));
+        String[] data = driver.findElement(By.xpath("//div[@id='content']")).getText().split("\n");
+        driver.navigate().back();
+        String fullName = data[0];
+        String address = data[1];
+        String homePhone = data[3].substring(3);
+        String mobilePhone = data[4].substring(3);
+        String workPhone = data[5].substring(3);
+//        .replaceAll(" ", "").replaceAll("\\W", "").replaceAll("\\s", "")
+        String email = data[7];
+        String email2 = data[8];
+        String email3 = data[9];
+        return new ContactData().withFullName(fullName).withAddress(address)
+                .withMobilePhone(mobilePhone).withHomePhone(homePhone).withWorkPhone(workPhone)
+                .withEmail(email).withEmail2(email2).withEmail3(email3);
     }
 }
