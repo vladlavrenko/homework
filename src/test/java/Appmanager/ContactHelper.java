@@ -104,8 +104,9 @@ public class ContactHelper extends HelperBase {
             String firstName = cells.get(2).getText();
             String allPhones = cells.get(5).getText();
             String allEmails = cells.get(4).getText();
+            String address = cells.get(3).getText();
             contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
-                    .withAllPhones(allPhones).withAllEmails(allEmails));
+                    .withAllPhones(allPhones).withAllEmails(allEmails).withAddress(address));
         }
         return new Contacts(contactCache);
     }
@@ -137,6 +138,10 @@ public class ContactHelper extends HelperBase {
 
     public String isPhonePresent() {
         return driver.findElement(By.xpath("//td[6]")).getText();
+    }
+
+    public String isAddressPresent() {
+        return driver.findElement(By.xpath("//td[4]")).getText();
     }
 
     public ContactData infoFromDetailedView(ContactData contact) {

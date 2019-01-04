@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e961252-f205-4c0f-a81d-4e3fc95b988e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/Contacts/DetailedViewContactTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Tests/Contacts/AddressContactTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Model/ContactData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Model/ContactData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Tests/Contacts/PhoneContactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Tests/Contacts/PhoneContactTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -79,7 +73,7 @@
         <counts>
           <entry key="CreateContact" value="1" />
           <entry key="gradle" value="3" />
-          <entry key="java" value="446" />
+          <entry key="java" value="447" />
           <entry key="uml" value="6" />
           <entry key="xml" value="1" />
         </counts>
@@ -87,7 +81,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="3" />
-          <entry key="JAVA" value="446" />
+          <entry key="JAVA" value="447" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="UML" value="6" />
           <entry key="XML" value="1" />
@@ -97,114 +91,28 @@
         <counts>
           <entry key="dummy" value="66" />
           <entry key="gradle" value="5" />
-          <entry key="java" value="23707" />
-          <entry key="txt" value="1774" />
+          <entry key="java" value="23911" />
+          <entry key="txt" value="1813" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="5" />
-          <entry key="JAVA" value="23707" />
-          <entry key="PLAIN_TEXT" value="1840" />
+          <entry key="JAVA" value="23911" />
+          <entry key="PLAIN_TEXT" value="1879" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/PhoneContactTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="46" column="51" lean-forward="true" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="51" />
-              <folding>
-                <element signature="e#1869#1870#0" expanded="true" />
-                <element signature="e#1943#1944#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/DetailedViewContactTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="29" column="92" lean-forward="true" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1464#1465#0" expanded="true" />
-                <element signature="e#1536#1537#0" expanded="true" />
-                <element signature="e#1733#1734#0" expanded="true" />
-                <element signature="e#1816#1817#0" expanded="true" />
-                <element signature="e#5093#5094#0" expanded="true" />
-                <element signature="e#5165#5166#0" expanded="true" />
-                <element signature="e#5202#5203#0" expanded="true" />
-                <element signature="e#5274#5275#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/CreateContactTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="493">
               <caret line="31" column="82" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Model/ContactData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="68" column="15" selection-start-line="68" selection-start-column="15" selection-end-line="68" selection-end-column="15" />
-              <folding>
-                <element signature="e#1551#1552#0" expanded="true" />
-                <element signature="e#1576#1577#0" expanded="true" />
-                <element signature="e#1611#1612#0" expanded="true" />
-                <element signature="e#1643#1644#0" expanded="true" />
-                <element signature="e#1652#1780#0" />
-                <element signature="e#1785#1904#0" />
-                <element signature="e#1909#2020#0" />
-                <element signature="e#2025#2136#0" />
-                <element signature="e#2141#2240#0" />
-                <element signature="e#2245#2352#0" />
-                <element signature="e#2357#2441#0" />
-                <element signature="e#2446#2553#0" />
-                <element signature="e#2558#2673#0" />
-                <element signature="e#2678#2801#0" />
-                <element signature="e#2806#2921#0" />
-                <element signature="e#2926#3025#0" />
-                <element signature="e#3030#3133#0" />
-                <element signature="e#3138#3241#0" />
-                <element signature="e#3246#3361#0" />
-                <element signature="e#3366#3481#0" />
-                <element signature="e#3579#3690#0" />
               </folding>
             </state>
           </provider>
@@ -643,8 +551,9 @@
         <option value="$PROJECT_DIR$/src/test/java/Model/ContactData.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/Contacts/PhoneContactTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/Tests/Contacts/DetailedViewContactTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Tests/Contacts/AddressContactTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java" />
       </list>
     </option>
   </component>
@@ -751,7 +660,7 @@
     <property name="SearchEverywhereHistoryKey" value="getAllEm&#9;PSI&#9;JAVA://Model.ContactData#getAllEmails&#10;email3&#9;PSI&#9;JAVA://Model.ContactData#email3&#10;getAll&#9;PSI&#9;JAVA://Model.ContactData#getAllPhones&#10;pom.x&#9;FILE&#9;jar://C:/Users/user/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.14/775b7e22fb10026eed3f86e8dc556dfafe35f2d5/animal-sniffer-annotations-1.14.jar!/META-INF/maven/org.codehaus.mojo/animal-sniffer-annotations/pom.xml&#10;goToHomePage&#9;null&#9;null&#10;versioncontr&#9;ACTION&#9;Vcs.Checkout&#10;contactData&#9;PSI&#9;JAVA://Model.ContactData&#10;optimizeimpo&#9;ACTION&#9;OptimizeImports" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546609389780" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546609853114" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/java/Tests" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -782,8 +691,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.DetailedViewContactTest">
-    <configuration name="CreateContactTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.Tests">
+    <configuration name="AddressContactTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="homework_test" />
       <extension name="coverage">
         <pattern>
@@ -792,7 +701,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests.Contacts" />
-      <option name="MAIN_CLASS_NAME" value="Tests.Contacts.CreateContactTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.Contacts.AddressContactTest" />
       <properties />
       <listeners />
       <method v="2">
@@ -815,22 +724,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EmailContactTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="homework_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.Contacts.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests.Contacts" />
-      <option name="MAIN_CLASS_NAME" value="Tests.Contacts.EmailContactTest" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PhoneContactTest" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <module name="homework_test" />
       <extension name="coverage">
@@ -841,6 +734,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests.Contacts" />
       <option name="MAIN_CLASS_NAME" value="Tests.Contacts.PhoneContactTest" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="homework_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="PACKAGE" />
       <properties />
       <listeners />
       <method v="2">
@@ -865,18 +774,18 @@
     </configuration>
     <list>
       <item itemvalue="TestNG.Tests.Contacts" />
-      <item itemvalue="TestNG.CreateContactTest" />
       <item itemvalue="TestNG.PhoneContactTest" />
-      <item itemvalue="TestNG.EmailContactTest" />
       <item itemvalue="TestNG.DetailedViewContactTest" />
+      <item itemvalue="TestNG.AddressContactTest" />
+      <item itemvalue="TestNG.Tests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.Tests" />
+        <item itemvalue="TestNG.AddressContactTest" />
         <item itemvalue="TestNG.DetailedViewContactTest" />
         <item itemvalue="TestNG.Tests.Contacts" />
         <item itemvalue="TestNG.PhoneContactTest" />
-        <item itemvalue="TestNG.EmailContactTest" />
-        <item itemvalue="TestNG.CreateContactTest" />
       </list>
     </recent_temporary>
   </component>
@@ -909,14 +818,7 @@
       <workItem from="1545037299373" duration="12013000" />
       <workItem from="1545050140766" duration="21327000" />
       <workItem from="1545914373059" duration="19745000" />
-      <workItem from="1546593582163" duration="9687000" />
-    </task>
-    <task id="LOCAL-00005" summary="создан тест создания коонтакта">
-      <created>1542285652066</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1542285652066</updated>
+      <workItem from="1546593582163" duration="10477000" />
     </task>
     <task id="LOCAL-00006" summary="выделены вспомогательные методы создания группы">
       <created>1542377724987</created>
@@ -1254,49 +1156,56 @@
       <option name="project" value="LOCAL" />
       <updated>1546424694361</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="обратная проверка подробной информации о контакте">
+      <created>1546609428615</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1546609428615</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 14h 57m 37s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 14h 57m 54s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 14h 59m 24s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 08m 29s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 09m 46s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 26m 31s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 29m 12s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
-    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 32m 01s.xml">
-      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 32m 13s.xml">
       <configuration name="DetailedViewContactTest" configurationId="TestNG" />
     </history-entry>
     <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 36m 15s.xml">
       <configuration name="DetailedViewContactTest" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 40m 13s.xml">
+      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 40m 49s.xml">
+      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Tests_Contacts - 2019.01.04 at 15h 41m 22s.xml">
+      <configuration name="Tests.Contacts" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="DetailedViewContactTest - 2019.01.04 at 15h 43m 01s.xml">
+      <configuration name="DetailedViewContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressContactTest - 2019.01.04 at 15h 47m 25s.xml">
+      <configuration name="AddressContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressContactTest - 2019.01.04 at 15h 49m 13s.xml">
+      <configuration name="AddressContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="AddressContactTest - 2019.01.04 at 15h 49m 56s.xml">
+      <configuration name="AddressContactTest" configurationId="TestNG" />
+    </history-entry>
+    <history-entry file="Tests - 2019.01.04 at 15h 50m 33s.xml">
+      <configuration name="Tests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147370000" />
+    <option name="totallyTimeSpent" value="148160000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1554" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.32054615" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32054615" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1305,7 +1214,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32910052" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49799198" visible="true" weight="0.2825397" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49799198" visible="true" weight="0.2825397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39894179" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1363,7 +1272,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="сравнение количества до и после теста" />
     <MESSAGE value="выбор определенного элемента для редактирования или удаления" />
     <MESSAGE value="сравнение списка групп до и после удаления" />
     <MESSAGE value="сравнение списка групп до и после создания и редактирования" />
@@ -1388,22 +1296,29 @@
     <MESSAGE value="почистил импорты" />
     <MESSAGE value="проверка номеров телефонов" />
     <MESSAGE value="обратная проверка номеров телефонов" />
-    <option name="LAST_COMMIT_MESSAGE" value="обратная проверка номеров телефонов" />
+    <MESSAGE value="обратная проверка подробной информации о контакте" />
+    <option name="LAST_COMMIT_MESSAGE" value="обратная проверка подробной информации о контакте" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java</url>
-          <line>117</line>
+          <line>118</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java</url>
-          <line>142</line>
+          <line>147</line>
           <properties />
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/Tests/Contacts/AddressContactTest.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1750,27 +1665,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/DetailedViewContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="52" selection-start-line="30" selection-start-column="52" selection-end-line="30" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/CreateContactTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="82" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="82" />
+        <state relative-caret-position="579">
+          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/EmailContactTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Appmanager/ContactHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="147" column="48" selection-start-line="147" selection-start-column="48" selection-end-line="147" selection-end-column="48" />
+        <state relative-caret-position="105">
+          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1464#1465#0" expanded="true" />
@@ -1781,14 +1696,26 @@
             <element signature="e#5165#5166#0" expanded="true" />
             <element signature="e#5202#5203#0" expanded="true" />
             <element signature="e#5274#5275#0" expanded="true" />
+            <element signature="e#5577#5578#0" expanded="true" />
+            <element signature="e#5649#5650#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/DetailedViewContactTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/AddressContactTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="29" column="92" lean-forward="true" selection-start-line="29" selection-start-column="92" selection-end-line="29" selection-end-column="92" />
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/Tests/Contacts/CreateContactTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="82" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
