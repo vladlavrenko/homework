@@ -16,7 +16,7 @@ public class PhoneContactTest extends TestBase {
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().homePage();
-        if (app.contact().all().size() == 0) {
+        if (app.contact().count() == 0) {
             app.contact().create(new ContactData()
                     .withFirstName("name")
                     .withHomePhone("123-132 (1231231) 123")

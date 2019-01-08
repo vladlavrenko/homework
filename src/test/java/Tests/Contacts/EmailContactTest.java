@@ -16,7 +16,7 @@ public class EmailContactTest extends TestBase {
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().homePage();
-        if (app.contact().all().size() == 0) {
+        if (app.contact().count() == 0) {
             app.contact().create(new ContactData().withEmail("email1").withEmail2("email2").withEmail3("email3"));
         } else if (app.contact().isEmailPresent().equals("")) {
             app.contact().create(new ContactData().withEmail("email1").withEmail2("email2").withEmail3("email3"));

@@ -12,7 +12,6 @@ public class DetailedViewContactTest extends TestBase {
 
     @BeforeMethod
     public static void preconditions() {
-        app.contact().all();
         contact = new ContactData().withFirstName("first").withLastName("last").withAddress("address")
                 .withEmail("email").withEmail2("email2").withEmail3("email3")
                 .withMobilePhone("12313asd ()--d4564").withHomePhone("546546").withWorkPhone("6465465464");
