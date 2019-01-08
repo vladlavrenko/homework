@@ -20,7 +20,7 @@ public class DetailedViewContactTest extends TestBase {
         contact.withId(app.contact().all().stream().mapToInt(ContactData::getId).max().getAsInt());
     }
 
-    @Test(invocationCount = 10)
+    @Test
     public static void testDetailedViewContact() {
         ContactData infoFromDetailedView = app.contact().infoFromDetailedView(contact);
         ContactData infoFromEditFrom = app.contact().infoFromEditForm(contact);

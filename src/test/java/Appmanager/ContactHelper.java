@@ -67,7 +67,7 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("add new"));
         fillContactsField(contact);
         submitContactCreationForm();
-        contactCache = contactCache.withAdded(contact.withId(contactCache.stream().mapToInt(ContactData::getId).max().getAsInt()));
+        contactCache = null;
         click(By.xpath("//a[contains(.,'home')]"));
     }
 
@@ -76,7 +76,7 @@ public class ContactHelper extends HelperBase {
         click(By.xpath("//input[@value='Delete']"));
         driver.switchTo().alert().accept();
         Thread.sleep(200);
-        contactCache = contactCache.without(contact);
+        contactCache = null;
         app.goTo().homePage();
     }
 
@@ -95,7 +95,6 @@ public class ContactHelper extends HelperBase {
             return new Contacts(contactCache);
         }
         contactCache = new Contacts();
-        Contacts contacts = new Contacts();
         List<WebElement> allRows = driver.findElements(By.xpath("//tr[@name = 'entry']"));
         for (WebElement row : allRows) {
             List<WebElement> cells = row.findElements(By.tagName("td"));
