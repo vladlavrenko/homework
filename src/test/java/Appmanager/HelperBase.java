@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 class HelperBase {
     WebDriver driver;
 
@@ -15,10 +17,16 @@ class HelperBase {
         if (text != null) {
             click(locator);
             String existingText = driver.findElement(locator).getAttribute("value");
-            if (! text.equals(existingText)) {
+            if (!text.equals(existingText)) {
                 driver.findElement(locator).clear();
                 driver.findElement(locator).sendKeys(text);
             }
+        }
+    }
+
+    void attach(By locator, File file) {
+        if (file != null) {
+            driver.findElement(locator).sendKeys(file.getAbsolutePath());
         }
     }
 

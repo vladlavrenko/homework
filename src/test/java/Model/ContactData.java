@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
@@ -22,6 +23,7 @@ public class ContactData {
     private String allPhones;
     private String allEmails;
     private String fullName;
+    private File photo;
 
     //Гетеры
     public String getFirstName() {
@@ -74,9 +76,9 @@ public class ContactData {
     }
     public String getFullName() {
         return fullName;
+    }    public File getPhoto() {
+        return photo;
     }
-
-
 
     //Сетеры
     public ContactData withFirstName(String firstName) {
@@ -145,6 +147,11 @@ public class ContactData {
     }
     public ContactData withFullName(String fullName) {
         this.fullName = fullName;
+        return this;
+    }
+
+    public ContactData withPhoto(File photo) {
+        this.photo = photo;
         return this;
     }
 
