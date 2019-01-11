@@ -3,24 +3,45 @@ package Tests.Groups;
 import Model.GroupData;
 import Model.Groups;
 import Tests.TestBase;
+import com.thoughtworks.xstream.XStream;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.*;
 
 public class CreateGroupTest extends TestBase {
+    @DataProvider
+    public Iterator<Object[]> validGroups() throws IOException {
+        List<Object[]> list = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/Resources/groups.xml")));
+        String xml = "";
+        String line = reader.readLine();
+        while (line != null) {
+           xml += line;
+            line = reader.readLine();
+        }
+        XStream xStream = new XStream();
+        xStream.processAnnotations(GroupData.class);
+        List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
+        return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+    }
 
     @BeforeMethod
     public void checkPreconditions() {
         app.goTo().groupPage();
     }
 
-    @Test
-    public void testCreateGroup() {
+    @Test(dataProvider = "validGroups")
+    public void testCreateGroup(GroupData group) {
         Groups before = app.group().all();
-        GroupData group = new GroupData().withName("test 1").withHeader("test 2").withFooter("test 3");
         app.group().create(group);
         assertThat(app.group().count(), equalTo(before.size() + 1));
         Groups after = app.group().all();
